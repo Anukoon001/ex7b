@@ -9,7 +9,7 @@ function checkSID() {
 
 function checkCandiNo() {
   let candi = (document.getElementById("candi").value).trim();
-  if (isNaN(candi) || candi < 1) {
+  if (isNaN(candi) || candi < 1 || candi > 10) {
     return false;
   } else {
     return true;
@@ -30,6 +30,10 @@ function validateForm() {
         return false;
     }
 
+    if (!checkCandiNo()) {
+        alert("Candidate No. must be a number between 1 and 10");
+        return false;
+    }
+
     return true;
 }
-	
