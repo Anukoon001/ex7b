@@ -16,19 +16,20 @@ function checkCandiNo() {
   }
 }
 
-function validateForm(){
-	if(!checkSID()){
-	  alert("Invalid value for Student ID!");
-	  document.getElementById("sid").focus();
-	  return false;
-	}else{
-		if(!checkCandiNo()){
-		  alert("Invalid value for Candidate No!!");
-		  document.getElementById("candi").focus();
-		  return false;
-		}else{
-			alert("Your input data passes validation!!");
-			return true;
-		}
-	}
+function validateForm() {
+
+    var sid = document.getElementById("sid").value;
+
+    if (sid.length != 10) {
+        alert("Student ID must be 10 characters");
+        return false;
+    }
+
+    if (!/^[0-9]+$/.test(sid)) {
+        alert("Student ID must contain numbers 0-9 only");
+        return false;
+    }
+
+    return true;
 }
+	
